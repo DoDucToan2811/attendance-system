@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "smart-445016",
+  "private_key_id": "ead681048f504e4933d10c38005287afca04bb33",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDlGat9CnUkvgEy\nAkgQhwm5vUVyEKW8MqIES7b4e4Xhl81SrojMvmmX1YFDfIh3yCT7SVTH+L9fNg79\nyvsoCmluhhQS5ZuRYLjsOEZQgMFSVIXeLCR0ZxCRzVKdKynk58TXqIdqLwnaxd6/\nY+vH7T77APjYZThRVJgQRjyIb+T0+fztqWRYiw9xQ3GvUvGdpsfXEQGQ8obkMffz\nBg5jBpj7vfoDH6x9zAbE0EJ1kAthfbezpzu/kMQJwsk/zLLVskcFcMxUm3J3WWVF\nMlDnIU8wc3dnZWZbulorKxQyO6iqoa3r9SLGL8MUaf49S9y0cbEdIiL323SuywPC\nCZEVTrhrAgMBAAECggEAK9zfz+dmKTw1l2EHch6glo6t0ppsWN1q1p62b9madugs\n9/URnP2h0t+eSZD4wdIwfmn6UPUHks+TTDUGJBLmP7Js+nc6czmM/jECCVy1ZrFn\nFfPmoOCws/GXLR87/KcBMXcDQimyXc//hy420MbUBZOYkTnD8BJdsNP5t/eQYvRz\nAIMCsoTaEsrsd0uVL46uFsH9qY5vPb5BjlJQmDpExTSHRoR5G1tGQPycw6Rkmijq\n5FraxaF2k9RE7YtMAoWstxp26kfvJjMq/SVYa4A5va6AMozcZYBOdPEb30vF0RGi\nfQPsp2xU4w4ZT4AgTANH8uOYZQx8BDGfkei2bMynwQKBgQD/ywM8HCPnwZ4U8HVJ\nuikbmgEhiZ/et136pkTKpIDVnEDuKv8KOyugY1bWo/Wzz+lAkrI4bG+jtnaKS+6M\nWMcsuDXEZUJSmxu2Ap0CbLsbdxSGGIzpbNOlVCZqX3VLolYj5mKgEH5A05lGy54O\nV131yAxhOYT1PDR6mtQNnOXiqwKBgQDlSSC7H3ijV7DiaGtpnhBk6apQMLJ1+z1s\nXonP+tCJzDo/vKu+25i0uI4FxUbPMo4WqQlaBnuTjXVM9nRNHRBVGI7VcawIBG1m\n8oRhoQSkiACNlGWAM055ZwcYVdPBXWJzMDcao8z8DulA16wTdsMfVOPoZJ7X+wGc\n3H1K9yiBQQKBgQCcwuoEmKpYigw7gPIgcPpodAVlbFaRw4bQ6b0XA6IBR3VzgN40\ngvbFoJvDh1A5Fp44eK7IbYwtpNEZCFf1oyLNgUdSSUxQG8br0MYwijpRJrVpSPpy\nw8Mhe2TfpAjahW6NKdAfkHwPdp5lCLygxWJMEoGjxAB72p2+1cxHW3R3aQKBgQDc\nfYFjUTVi5t4sK7w3ehBL6sSkjt/fQzbjMtqWTZ0jFmlhh58lT+m+yMeS1w5sDDLF\nqdJbZ2aJE3ydAVgAHBXrr00UB1cm8pL+b/NMK1ramgrmG7GsIiqx5pjVFxwmlBYr\nrU8gaCqkrfYzK/PHV+r2A12TysdR7Yi0fvhiEeI6wQKBgQDJUJoAJr3X5weQ0CE/\nwLZSVGlrVDcpD9a23utKj7MWhidcHDmchtjv5slRf/iBXmdn3opPQCkZlnIXNyes\nBgbPs2NIZiDSBrLKPbbpKiM0FoslhsNNzufQqzGco3BaWMq1F9Udymlj8rMD9Rzt\nsdT5xmq5gQyxgurL/BZG7bDFSw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "smartattendencecheck@smart-445016.iam.gserviceaccount.com",
+  "client_id": "117133761358642082407",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/smartattendencecheck%40smart-445016.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
