@@ -132,6 +132,43 @@ Main function to run real-time face recognition and attendance tracking.
 
 To run the code on Raspberry Pi 5 and utilize the PiCamera2 library for camera input, follow these additional steps:
 
+#### Hardware Requirements
+1. **Raspberry Pi 5**
+   - Ensure you have a Raspberry Pi 5 with sufficient power supply.
+2. **Camera Module**
+   - Raspberry Pi Camera Module (compatible with PiCamera2 library).
+   - Alternatively, any USB camera compatible with OpenCV.
+3. **SD Card**
+   - A high-speed SD card with at least 16GB capacity.
+4. **Cooling System**
+   - Optional, but recommended for intensive tasks like face recognition (e.g., heat sink or fan).
+5. **Monitor, Keyboard, and Mouse**
+   - For initial setup and debugging.
+
+#### Software Requirements
+1. **Operating System**
+   - Raspberry Pi OS (Bullseye or newer).
+   - Ensure the system is updated:
+     ```bash
+     sudo apt update && sudo apt upgrade -y
+     ```
+2. **Python Environment**
+   - Python 3.7+ pre-installed on Raspberry Pi OS.
+3. **PiCamera2 Library**
+   - Required for camera integration:
+     ```bash
+     sudo apt install python3-picamera2
+     ```
+4. **Additional Libraries**
+   - OpenCV and other dependencies:
+     ```bash
+     sudo apt install python3-opencv libatlas-base-dev
+     pip3 install -r requirements.txt
+     ```
+
+---
+
+
 #### 1. Install Dependencies
 Ensure all required dependencies, including PiCamera2, are installed:
 ```bash
