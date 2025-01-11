@@ -128,6 +128,73 @@ Main function to run real-time face recognition and attendance tracking.
 
 6. **Test the System**
    - Use a webcam to recognize faces and update attendance.
+### Adjusting Code for Raspberry Pi 5 Using PiCamera2
+
+To run the code on Raspberry Pi 5 and utilize the PiCamera2 library for camera input, follow these additional steps:
+
+#### 1. Install Dependencies
+Ensure all required dependencies, including PiCamera2, are installed:
+```bash
+sudo apt update
+sudo apt install python3-picamera2 python3-opencv libatlas-base-dev
+pip3 install -r requirements.txt
+```
+
+#### 2. Enable the Camera
+Enable the Raspberry Pi camera via `raspi-config`:
+```bash
+sudo raspi-config
+```
+- Navigate to **Interface Options > Camera** and enable it.
+- Reboot the Raspberry Pi:
+```bash
+sudo reboot
+```
+
+#### 3. Update Camera Code to Use PiCamera2
+Modify `main.py` to use the PiCamera2 library for video capture. Replace the existing `cv2.VideoCapture` code with the following:
+```python
+from picamera2 import Picamera2
+import cv2
+
+# Initialize PiCamera2
+picam2 = Picamera2()
+picam2.configure(picam2.create_preview_configuration(main={"size": (640, 480)}))
+picam2.start()
+
+while True:
+    frame = picam2.capture_array()
+    # Add your face recognition and processing code here
+    cv2.imshow("Face Recognition", frame)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cv2.destroyAllWindows()
+```
+
+#### 4. Optimize Model Loading for Pi
+Given the limited resources on Raspberry Pi, ensure lightweight models are used. Modify `main.py` to load models optimized for embedded devices. For example:
+```python
+model_dir = "./resources/lightweight_models"
+```
+
+#### 5. Reduce Frame Size for Performance
+To improve performance, downscale the frames before processing:
+```python
+frame = cv2.resize(frame, (320, 240))
+```
+
+#### 6. Test and Debug
+Run the script on Raspberry Pi 5:
+```bash
+python3 main.py
+```
+Check logs for any issues and optimize further if necessary.
+
+---
+
+
 
 ## Acknowledgments
 
