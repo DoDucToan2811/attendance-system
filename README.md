@@ -40,9 +40,44 @@ pip install -r requirements.txt
 ## Setup
 
 ### 1. Configure Google Sheets
-1. Create a Google Sheet with a header row (`Student ID`, etc.).
-2. Share the sheet with the service account email (available in the `.json` credentials file).
-3. Replace the `SHEET_NAME` variable in `main.py` with your Google Sheet name.
+
+1. **Create a New Google Sheet**:
+   - Open Google Sheets and create a new spreadsheet.
+   - Set up the headers in the first row with the following structure:
+     - Column A: `Room_ID` - Represents the ID of the room (e.g., 108).
+     - Column B: `Date` - Specifies the session's date in the format `DD/MM/YYYY`.
+     - Column C: `Hour Range` - Indicates the session's start and end time (e.g., `08:00-12:00`).
+     - Column D: `Subject` - Specifies the subject or instructor name (e.g., `Prof.Hien`, `Prof.Son`).
+
+   Example layout:
+   ![Sheet1 Example](Sheet1.png)
+
+2. **Add Additional Sheets for Attendance**:
+   - Create another sheet (e.g., `Attendance`) with the following structure:
+     - Column A: `Student ID` - The unique identifier for each student.
+     - Column B: `Major` - The field of study (e.g., `CSE`, `ECE`).
+     - Column C: `Intake Year` - The year the student joined (e.g., 2021, 2023).
+     - Column D: `Image` - A marker (e.g., `x`) indicating the availability of the student's photo.
+     - Columns E onward: Dates in the format `DD/MM/YYYY` to track attendance, where a ✅ indicates the student was present.
+
+   Example layout:
+   ![Attendance Example](Result_sheet.png)
+
+3. **Share the Sheet**:
+   - Open the `.json` credentials file and locate the `client_email` field.
+   - Share the Google Sheet with the email address listed in `client_email`.
+   - Grant **Editor** permissions to ensure the script can update attendance records.
+
+4. **Update the Script**:
+   - Replace the `SHEET_NAME` variable in `main.py` with the name of your Google Sheet:
+     ```python
+     SHEET_NAME = "YourGoogleSheetName"
+     ```
+   - Verify the connection by running the script. It will prompt for selecting the correct sheet if multiple exist.
+
+5. **Verify Formatting**:
+   - Ensure each sheet matches the specified format. Attendance marking (✅ for present, blank for absent) should align with the attendance sheet's layout.
+   - Ensure the `Room_ID`, `Date`, and `Hour Range` columns in `Sheet1` align with the session schedule.
 
 ### 2. Install Python Dependencies
 Install the required Python packages using the provided `requirements.txt` file:
@@ -128,6 +163,7 @@ Main function to run real-time face recognition and attendance tracking.
 
 6. **Test the System**
    - Use a webcam to recognize faces and update attendance.
+
 ### Adjusting Code for Raspberry Pi 5 Using PiCamera2
 
 To run the code on Raspberry Pi 5 and utilize the PiCamera2 library for camera input, follow these additional steps:
@@ -167,7 +203,6 @@ To run the code on Raspberry Pi 5 and utilize the PiCamera2 library for camera i
      ```
 
 ---
-
 
 #### 1. Install Dependencies
 Ensure all required dependencies, including PiCamera2, are installed:
@@ -231,8 +266,6 @@ Check logs for any issues and optimize further if necessary.
 
 ---
 
-
-
 ## Acknowledgments
 
 - [InsightFace](https://github.com/deepinsight/insightface): Open-source 2D and 3D deep face analysis toolbox.
@@ -242,4 +275,3 @@ Check logs for any issues and optimize further if necessary.
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
-
