@@ -63,15 +63,24 @@ pip install -r requirements.txt
    Example layout:
    ![Attendance Example](Result_sheet.png)
 
-3. **Share the Sheet**:
-   - Open the `.json` credentials file and locate the `client_email` field.
-   - Share the Google Sheet with the email address listed in `client_email`.
-   - Grant **Editor** permissions to ensure the script can update attendance records.
+3. **Set Up Google Sheets API**:
+   - Go to the [Google Cloud Console](https://console.cloud.google.com/).
+   - Create a new project (or select an existing one).
+   - Navigate to **APIs & Services > Library** and enable the **Google Sheets API** and **Google Drive API**.
+   - Go to **APIs & Services > Credentials**, then click **Create Credentials > Service Account**.
+   - Fill in the required details and create a service account.
+   - Once the service account is created, go to the **Keys** tab and generate a new JSON key file.
+   - Download the JSON key file and rename it to `smart-445016-ead681048f50.json` (or update the name in your script).
+   - Share your Google Sheet with the **service account email** (found in the JSON key file) and grant **Editor** permissions.
 
 4. **Update the Script**:
    - Replace the `SHEET_NAME` variable in `main.py` with the name of your Google Sheet:
      ```python
      SHEET_NAME = "YourGoogleSheetName"
+     ```
+   - Replace the `JSON_CREDENTIALS` variable with the path to your JSON key file:
+     ```python
+     JSON_CREDENTIALS = "path/to/your/json/file.json"
      ```
    - Verify the connection by running the script. It will prompt for selecting the correct sheet if multiple exist.
 
