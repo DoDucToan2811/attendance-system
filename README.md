@@ -29,9 +29,11 @@ pip install -r requirements.txt
 - `embeddings.csv`: File to store face embeddings and IDs.
 - Models for liveness detection (e.g., `2.7_80x80_MiniFASNetV2.pth`, `4_0_0_80x80_MiniFASNetV1SE.pth`).
 - InsightFace model files:
-  - `1k3d68.onnx` and `w600k_r50.onnx`: Download from the [InsightFace Model Zoo](https://github.com/deepinsight/insightface/tree/master/model_zoo) (in case of not already in buffalo_m folder) and place them in the `buffalo_m/` folder.
+  - `1k3d68.onnx` and `w600k_r50.onnx`: Download from the [InsightFace Model Zoo](https://github.com/deepinsight/insightface/tree/master/model_zoo) (in case of not already in `buffalo_m` folder) and place them in the `buffalo_m/` folder.
   - Additional REST API resources: [InsightFace-REST](https://github.com/SthPhoenix/InsightFace-REST).
   - Alternative download link for `1k3d68.onnx`: [Hugging Face](https://huggingface.co/DIAMONIK7777/antelopev2/blob/main/1k3d68.onnx).
+
+**Note**: If you encounter issues downloading files due to Git LFS bandwidth limitations, please use the alternative links provided above.
 
 ## Project Structure
 
@@ -119,7 +121,7 @@ python main.py
 2. **Face Recognition**:
    - Matches detected faces with saved embeddings in `embeddings.csv`.
 3. **Liveness Detection**:
-   - Ensures the detected face is real using anti-spoofing models.
+   - Liveness detection prevents spoofing attacks by analyzing facial features to ensure the face is real and not a printed photo or video replay. Models such as MiniFASNet are used to process the cropped face image and predict whether the face is genuine. This ensures higher accuracy in attendance tracking.
 4. **Attendance Update**:
    - Marks attendance for recognized individuals in Google Sheets if they are continuously recognized for 3 seconds.
 
@@ -138,7 +140,7 @@ Loads face embeddings and corresponding IDs from the CSV file.
 Compares a face embedding with saved embeddings using cosine similarity.
 
 ### `detect_liveness(frame, model_test, image_cropper, model_dir)`
-Performs liveness detection on a detected face.
+Performs liveness detection on a detected face using anti-spoofing models.
 
 ### `run_realtime_face_recognition(csv_path, model_dir, device_id)`
 Main function to run real-time face recognition and attendance tracking.
