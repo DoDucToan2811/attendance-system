@@ -29,7 +29,7 @@ pip install -r requirements.txt
 - `embeddings.csv`: File to store face embeddings and IDs.
 - Models for liveness detection (e.g., `2.7_80x80_MiniFASNetV2.pth`, `4_0_0_80x80_MiniFASNetV1SE.pth`).
 - InsightFace model files:
-  - `1k3d68.onnx` and `w600k_r50.onnx`: Download from the [InsightFace Model Zoo](https://github.com/deepinsight/insightface/tree/master/model_zoo) and place them in the `buffalo_m/` folder.
+  - `1k3d68.onnx` and `w600k_r50.onnx`: Download from the [InsightFace Model Zoo](https://github.com/deepinsight/insightface/tree/master/model_zoo) (in case of not already in buffalo_m folder) and place them in the `buffalo_m/` folder.
   - Additional REST API resources: [InsightFace-REST](https://github.com/SthPhoenix/InsightFace-REST).
   - Alternative download link for `1k3d68.onnx`: [Hugging Face](https://huggingface.co/DIAMONIK7777/antelopev2/blob/main/1k3d68.onnx).
 
