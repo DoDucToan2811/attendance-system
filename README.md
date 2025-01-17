@@ -28,7 +28,10 @@ pip install -r requirements.txt
 - `smart-445016-ead681048f50.json`: Google Cloud service account credentials.
 - `embeddings.csv`: File to store face embeddings and IDs.
 - Models for liveness detection (e.g., `2.7_80x80_MiniFASNetV2.pth`, `4_0_0_80x80_MiniFASNetV1SE.pth`).
-- InsightFace model files (e.g., `buffalo_m/w600k_r50.onnx`).
+- InsightFace model files:
+  - `1k3d68.onnx` and `w600k_r50.onnx`: Download from the [InsightFace Model Zoo](https://github.com/deepinsight/insightface/tree/master/model_zoo) and place them in the `buffalo_m/` folder.
+  - Additional REST API resources: [InsightFace-REST](https://github.com/SthPhoenix/InsightFace-REST).
+  - Alternative download link for `1k3d68.onnx`: [Hugging Face](https://huggingface.co/DIAMONIK7777/antelopev2/blob/main/1k3d68.onnx).
 
 ## Project Structure
 
@@ -96,8 +99,11 @@ pip install -r requirements.txt
 
 ### 3. Configure Face Models
 1. Download InsightFace models and place them in a folder (`buffalo_m/`):
-   - **`det_2.5g.onnx`**: Face detection model
-   - **`w600k_r50.onnx`**: Face recognition model
+   - **`det_2.5.onnx`**: Face detection model.
+   - **`w600k_r50.onnx`**: Face recognition model.
+   - Download from the [InsightFace Model Zoo](https://github.com/deepinsight/insightface/tree/master/model_zoo).
+   - Additional REST API resources: [InsightFace-REST](https://github.com/SthPhoenix/InsightFace-REST).
+   - Alternative download link for `1k3d68.onnx`: [Hugging Face](https://huggingface.co/DIAMONIK7777/antelopev2/blob/main/1k3d68.onnx).
 2. Ensure the `buffalo_m/` folder is in the same directory as `main.py`.
 
 ### 4. Run the Script
@@ -173,114 +179,15 @@ Main function to run real-time face recognition and attendance tracking.
 6. **Test the System**
    - Use a webcam to recognize faces and update attendance.
 
-### Adjusting Code for Raspberry Pi 5 Using PiCamera2
-
-To run the code on Raspberry Pi 5 and utilize the PiCamera2 library for camera input, follow these additional steps:
-
-#### Hardware Requirements
-1. **Raspberry Pi 5**
-   - Ensure you have a Raspberry Pi 5 with sufficient power supply.
-2. **Camera Module**
-   - Raspberry Pi Camera Module (compatible with PiCamera2 library).
-   - Alternatively, any USB camera compatible with OpenCV.
-3. **SD Card**
-   - A high-speed SD card with at least 16GB capacity.
-4. **Cooling System**
-   - Optional, but recommended for intensive tasks like face recognition (e.g., heat sink or fan).
-5. **Monitor, Keyboard, and Mouse**
-   - For initial setup and debugging.
-
-#### Software Requirements
-1. **Operating System**
-   - Raspberry Pi OS (Bullseye or newer).
-   - Ensure the system is updated:
-     ```bash
-     sudo apt update && sudo apt upgrade -y
-     ```
-2. **Python Environment**
-   - Python 3.7+ pre-installed on Raspberry Pi OS.
-3. **PiCamera2 Library**
-   - Required for camera integration:
-     ```bash
-     sudo apt install python3-picamera2
-     ```
-4. **Additional Libraries**
-   - OpenCV and other dependencies:
-     ```bash
-     sudo apt install python3-opencv libatlas-base-dev
-     pip3 install -r requirements.txt
-     ```
-
----
-
-#### 1. Install Dependencies
-Ensure all required dependencies, including PiCamera2, are installed:
-```bash
-sudo apt update
-sudo apt install python3-picamera2 python3-opencv libatlas-base-dev
-pip3 install -r requirements.txt
-```
-
-#### 2. Enable the Camera
-Enable the Raspberry Pi camera via `raspi-config`:
-```bash
-sudo raspi-config
-```
-- Navigate to **Interface Options > Camera** and enable it.
-- Reboot the Raspberry Pi:
-```bash
-sudo reboot
-```
-
-#### 3. Update Camera Code to Use PiCamera2
-Modify `main.py` to use the PiCamera2 library for video capture. Replace the existing `cv2.VideoCapture` code with the following:
-```python
-from picamera2 import Picamera2
-import cv2
-
-# Initialize PiCamera2
-picam2 = Picamera2()
-picam2.configure(picam2.create_preview_configuration(main={"size": (640, 480)}))
-picam2.start()
-
-while True:
-    frame = picam2.capture_array()
-    # Add your face recognition and processing code here
-    cv2.imshow("Face Recognition", frame)
-
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-
-cv2.destroyAllWindows()
-```
-
-#### 4. Optimize Model Loading for Pi
-Given the limited resources on Raspberry Pi, ensure lightweight models are used. Modify `main.py` to load models optimized for embedded devices. For example:
-```python
-model_dir = "./resources/lightweight_models"
-```
-
-#### 5. Reduce Frame Size for Performance
-To improve performance, downscale the frames before processing:
-```python
-frame = cv2.resize(frame, (320, 240))
-```
-
-#### 6. Test and Debug
-Run the script on Raspberry Pi 5:
-```bash
-python3 main.py
-```
-Check logs for any issues and optimize further if necessary.
-
----
-
 ## Acknowledgments
 
 - [InsightFace](https://github.com/deepinsight/insightface): Open-source 2D and 3D deep face analysis toolbox.
 - [Google Sheets API](https://developers.google.com/sheets/api): For attendance tracking.
 - [OpenCV](https://opencv.org/): For real-time video processing.
+- [InsightFace-REST](https://github.com/SthPhoenix/InsightFace-REST): REST API for efficient face recognition and analysis.
+- [Hugging Face](https://huggingface.co/DIAMONIK7777/antelopev2/blob/main/1k3d68.onnx): Alternative source for downloading `1k3d68.onnx`.
 
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
+
