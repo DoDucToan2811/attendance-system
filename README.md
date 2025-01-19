@@ -147,8 +147,8 @@ Main function to run real-time face recognition and attendance tracking.
 
 ## Usage
 
-- **Press `q`**: Exit the application.
-- **Press `s`**: Save new face embeddings dynamically by entering an ID.
+- **Press `q`**: Exit the application. (both main.py and insightface_test.py)
+- **Press `s`**: Save new face embeddings dynamically by entering an ID. (insightface_test.py)
 
 ## Beginner's Manual
 
